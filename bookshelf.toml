@@ -5,7 +5,7 @@ working-dir = "repos"
 
 [[book]]
 repo-url = "https://github.com/rust-lang/book.git"
-url = "https://doc.rust-lang.org/stable/book/index.html"
+url = "https://doc.rust-lang.org/stable/book/"
 
 [[book]]
 repo-url = "https://github.com/rust-lang/rust-by-example.git"
@@ -13,50 +13,67 @@ url = "https://doc.rust-lang.org/stable/rust-by-example/"
 
 [[book]]
 repo-url = "https://github.com/rust-lang-nursery/rust-cookbook.git"
-url = "https://github.com/rust-lang-nursery/rust-cookbook"
+url = "https://rust-lang-nursery.github.io/rust-cookbook/"
 
+# TODO: epub generator handle SVG url
 #[[book]]
-#repo-url = "https://github.com/rust-lang-nursery/edition-guide.git"
+#repo-url = "https://github.com/rust-lang/edition-guide.git"
 #url = "https://doc.rust-lang.org/nightly/edition-guide/"
 
 [[book]]
 repo-url = "https://github.com/rust-lang/rustc-guide.git"
-url = "https://doc.rust-lang.org/stable/rustc/index.html"
+url = "https://doc.rust-lang.org/stable/rustc/"
 
 [[book]]
 repo-url = "https://github.com/rust-lang/cargo.git"
-url = "https://doc.rust-lang.org/stable/cargo/index.html"
+url = "https://doc.rust-lang.org/stable/cargo/"
 folder = "src/doc/"
 
 [[book]]
 title = "The Rustdoc Book"
 repo-url = "https://github.com/rust-lang/rust.git"
-url = "https://doc.rust-lang.org/stable/rustdoc/index.html"
+url = "https://doc.rust-lang.org/stable/rustdoc/"
 folder = "src/doc/rustdoc/"
 
 [[book]]
-repo-url = "https://github.com/rust-lang-nursery/reference.git"
-url = "https://doc.rust-lang.org/stable/reference/index.html"
+repo-url = "https://github.com/rust-lang/reference.git"
+url = "https://doc.rust-lang.org/stable/reference/"
 
 [[book]]
 title = "The Rustonomicon"
 repo-url = "https://github.com/rust-lang-nursery/nomicon.git"
-url = "https://doc.rust-lang.org/stable/nomicon/index.html"
+url = "https://doc.rust-lang.org/stable/nomicon/"
 
+# TODO: epub generator build without SUMMARY.md
 #[[book]]
 #repo-url = "https://github.com/rust-lang/rust.git"
-#url = "https://doc.rust-lang.org/stable/unstable-book/index.html"
+#url = "https://doc.rust-lang.org/stable/unstable-book/"
 #folder = "src/doc/unstable-book"
 
 [[book]]
+repo-url = "https://github.com/rust-cli/book.git"
+url = "https://rust-cli.github.io/book/"
+
+# TODO: epub generator handle GIF url
+#[[book]]
+#repo-url = "https://github.com/rustwasm/book.git"
+#url = "https://rustwasm.github.io/docs/book/"
+
+[[book]]
 repo-url = "https://github.com/rust-embedded/book.git"
-url = "https://doc.rust-lang.org/nightly/embedded-book/index.html"
+url = "https://doc.rust-lang.org/nightly/embedded-book/"
 
 [[book]]
-repo-url = "https://github.com/rust-lang-nursery/api-guidelines.git"
-url = "https://rust-lang-nursery.github.io/api-guidelines/"
+repo-url = "https://github.com/rust-lang/api-guidelines.git"
+url = "https://rust-lang.github.io/api-guidelines/"
+
+# TODO: epub generator handle draft chapter
+#[[book]]
+#title = "Asynchronous Programming in Rust"
+#repo-url = "https://github.com/rust-lang/async-book.git"
+#url = "https://rust-lang.github.io/async-book/"
 
 [[book]]
-title = "Asynchronous Programming in Rust"
-repo-url = "https://github.com/rust-lang/async-book.git"
-url = "https://rust-lang.github.io/async-book/"
+repo-url = "https://github.com/rust-lang/mdBook.git"
+url = "https://rust-lang.github.io/mdBook/"
+folder = "guide/"
