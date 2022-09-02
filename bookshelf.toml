@@ -15,10 +15,9 @@ url = "https://doc.rust-lang.org/stable/rust-by-example/"
 repo-url = "https://github.com/rust-lang-nursery/rust-cookbook.git"
 url = "https://rust-lang-nursery.github.io/rust-cookbook/"
 
-# TODO: epub generator handle SVG url
-#[[book]]
-#repo-url = "https://github.com/rust-lang/edition-guide.git"
-#url = "https://doc.rust-lang.org/nightly/edition-guide/"
+[[book]]
+repo-url = "https://github.com/rust-lang/edition-guide.git"
+url = "https://doc.rust-lang.org/nightly/edition-guide/"
 
 [[book]]
 repo-url = "https://github.com/rust-lang/rustc-guide.git"
@@ -44,7 +43,7 @@ title = "The Rustonomicon"
 repo-url = "https://github.com/rust-lang-nursery/nomicon.git"
 url = "https://doc.rust-lang.org/stable/nomicon/"
 
-# TODO: epub generator build without SUMMARY.md
+# TODO: build with [unstable-book-gen](https://github.com/rust-lang/rust/tree/master/src/tools/unstable-book-gen)
 #[[book]]
 #repo-url = "https://github.com/rust-lang/rust.git"
 #url = "https://doc.rust-lang.org/stable/unstable-book/"
@@ -54,26 +53,37 @@ url = "https://doc.rust-lang.org/stable/nomicon/"
 repo-url = "https://github.com/rust-cli/book.git"
 url = "https://rust-cli.github.io/book/"
 
-# TODO: epub generator handle GIF url
-#[[book]]
-#repo-url = "https://github.com/rustwasm/book.git"
-#url = "https://rustwasm.github.io/docs/book/"
+[[book]]
+repo-url = "https://github.com/rustwasm/book.git"
+url = "https://rustwasm.github.io/docs/book/"
 
 [[book]]
 repo-url = "https://github.com/rust-embedded/book.git"
 url = "https://doc.rust-lang.org/nightly/embedded-book/"
 
 [[book]]
+repo-url = "https://github.com/esp-rs/book.git"
+url = "https://esp-rs.github.io/book/"
+
+[[book]]
 repo-url = "https://github.com/rust-lang/api-guidelines.git"
 url = "https://rust-lang.github.io/api-guidelines/"
 
-# TODO: epub generator handle draft chapter
-#[[book]]
-#title = "Asynchronous Programming in Rust"
-#repo-url = "https://github.com/rust-lang/async-book.git"
-#url = "https://rust-lang.github.io/async-book/"
+[[book]]
+title = "Asynchronous Programming in Rust"
+repo-url = "https://github.com/rust-lang/async-book.git"
+url = "https://rust-lang.github.io/async-book/"
+
+[[book]]
+repo-url = "https://github.com/async-rs/async-std.git"
+url = "https://book.async.rs/"
+folder = "docs"
 
 [[book]]
 repo-url = "https://github.com/rust-lang/mdBook.git"
 url = "https://rust-lang.github.io/mdBook/"
 folder = "guide/"
+
+[[book]]
+repo-url = "https://github.com/nnethercote/perf-book"
+url = "https://nnethercote.github.io/perf-book"
