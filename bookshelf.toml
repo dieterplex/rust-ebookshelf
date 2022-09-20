@@ -85,5 +85,11 @@ url = "https://rust-lang.github.io/mdBook/"
 folder = "guide/"
 
 [[book]]
-repo-url = "https://github.com/nnethercote/perf-book"
+repo-url = "https://github.com/nnethercote/perf-book.git"
 url = "https://nnethercote.github.io/perf-book"
+
+[[book]]
+title = "The Little Book of Rust Macros"
+repo-url = "https://github.com/veykril/tlborm.git"
+url = "https://veykril.github.io/tlborm/"
+
