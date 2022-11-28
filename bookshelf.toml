@@ -93,3 +93,19 @@ title = "The Little Book of Rust Macros"
 repo-url = "https://github.com/veykril/tlborm.git"
 url = "https://veykril.github.io/tlborm/"
 
+[[book]]
+title = "CXX Documentation"
+repo-url = "https://github.com/dtolnay/cxx.git"
+url = "https://cxx.rs/"
+folder = "book/"
+
+[[book]]
+repo-url = "https://github.com/KDAB/cxx-qt.git"
+url = "https://kdab.github.io/cxx-qt/book"
+folder = "book/"
+
+[[book]]
+title = "FLTK-rs Book"
+repo-url = "https://github.com/fltk-rs/fltk-book.git"
+url = "https://fltk-rs.github.io/fltk-book"
+
