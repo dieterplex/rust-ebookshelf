@@ -22,6 +22,7 @@ url = "https://doc.rust-lang.org/nightly/edition-guide/"
 [[book]]
 repo-url = "https://github.com/rust-lang/rustc-guide.git"
 url = "https://doc.rust-lang.org/stable/rustc/"
+# require preprocessor: mermaid, toc
 
 [[book]]
 repo-url = "https://github.com/rust-lang/cargo.git"
@@ -64,6 +65,7 @@ url = "https://doc.rust-lang.org/nightly/embedded-book/"
 [[book]]
 repo-url = "https://github.com/esp-rs/book.git"
 url = "https://esp-rs.github.io/book/"
+# require preprocessor: mermaid
 
 [[book]]
 repo-url = "https://github.com/rust-lang/api-guidelines.git"
@@ -73,6 +75,7 @@ url = "https://rust-lang.github.io/api-guidelines/"
 title = "Asynchronous Programming in Rust"
 repo-url = "https://github.com/rust-lang/async-book.git"
 url = "https://rust-lang.github.io/async-book/"
+# contain draft chapter
 
 [[book]]
 repo-url = "https://github.com/async-rs/async-std.git"
@@ -92,6 +95,7 @@ url = "https://nnethercote.github.io/perf-book"
 title = "The Little Book of Rust Macros"
 repo-url = "https://github.com/veykril/tlborm.git"
 url = "https://veykril.github.io/tlborm/"
+# contain draft chapter
 
 [[book]]
 title = "CXX Documentation"
