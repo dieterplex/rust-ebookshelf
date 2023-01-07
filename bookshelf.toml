@@ -116,3 +116,14 @@ title = "FLTK-rs Book"
 repo-url = "https://github.com/fltk-rs/fltk-book.git"
 url = "https://fltk-rs.github.io/fltk-book"
 
+[[book]]
+repo-url = "https://github.com/google/comprehensive-rust.git"
+url = "https://google.github.io/comprehensive-rust/"
+# require preprocessor: svgbob
+[book.env-var]
+MDBOOK_PREPROCESSOR__SVGBOB = """\
+class = "bob"
+background = "white"
+stroke_color = "black"
+"""
+
