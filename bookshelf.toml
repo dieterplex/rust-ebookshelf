@@ -6,6 +6,9 @@ working-dir = "repos"
 [[book]]
 repo-url = "https://github.com/rust-lang/book.git"
 url = "https://doc.rust-lang.org/stable/book/"
+# require preprocessor: nocomment
+[book.env-var]
+MDBOOK_PREPROCESSOR__NOCOMMENT = ""
 
 [[book]]
 repo-url = "https://github.com/rust-lang/rust-by-example.git"
