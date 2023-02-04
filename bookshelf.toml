@@ -127,3 +127,6 @@ background = "white"
 stroke_color = "black"
 """
 
+[[book]]
+repo-url = "https://github.com/rust-unofficial/patterns.git"
+url = "https://rust-unofficial.github.io/patterns/"
