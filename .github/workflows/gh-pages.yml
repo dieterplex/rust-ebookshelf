@@ -6,11 +6,26 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  BINST: "https://github.com/cargo-bins/cargo-binstall/releases/latest/download/cargo-binstall-x86_64-unknown-linux-musl.tgz"
+
 jobs:
   deploy:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
+
+      # - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Install preprocessors
+        run: |
+          if ! [ -x "$(command -v cargo-binstall)" ]; then
+            curl -L $BINST | tar zxf - -C ~/.cargo/bin/
+          fi
+          cargo binstall --no-confirm --force mdbook-nocomment mdbook-mermaid mdbook-toc
+          cargo install --locked mdbook-svgbob
 
       - name: Setup mdBook
         uses: peaceiris/actions-mdbook@v1
