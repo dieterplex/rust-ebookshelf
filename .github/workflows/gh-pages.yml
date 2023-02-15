@@ -27,13 +27,9 @@ jobs:
             curl --location --silent --show-error --fail "$SHELFBIN" | tar -zxf - -C ~/.cargo/bin
           fi
 
-      - uses: taiki-e/install-action@mdbook
-
       - uses: taiki-e/install-action@v2
         with:
-          tool: mdbook-nocomment,mdbook-mermaid,mdbook-toc
-
-      - run: cargo install --locked mdbook-svgbob
+          tool: mdbook,mdbook-nocomment,mdbook-mermaid,mdbook-toc,mdbook-svgbob
 
       - name: Build
         run: mdbookshelf && mdbook build
