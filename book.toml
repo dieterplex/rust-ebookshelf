@@ -7,5 +7,8 @@ title = "The Rust eBookshelf"
 [build]
 build-dir = "docs"
 
+[output.html]
+git-repository-url = "https://github.com/dieterplex/rust-ebookshelf"
+
 [output.html.search]
 enable = false

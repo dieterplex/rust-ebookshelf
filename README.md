@@ -22,4 +22,3 @@ cargo install --git https://github.com/dieterplex/mdbookshelf
 ### Known issue
 
 - Many books still contain fatal errors by checking with `epubcheck` tool. Some readers may not work as expected.
-- TRPL book won't be able to build correct book content since `rustdoc_include`/`include` is not supported by [mdbook-epub standalone mode](https://github.com/Michael-F-Bryan/mdbook-epub/issues/30). Manually use `mdbook build` after the line `[output.epub]` appended to `book.toml`.
