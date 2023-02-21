@@ -1,2 +1,5 @@
 repos
 src/rust.md
+src/*.epub
+src/cache/
+docs/
