@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 env:
-  SHELFBIN: "https://github.com/dieterplex/mdbookshelf/releases/download/v0.3.0/mdbookshelf-x86_64-unknown-linux-gnu.tar.gz"
+  SHELFBIN: "https://github.com/dieterplex/mdbookshelf/releases/download/v0.4.0/mdbookshelf-x86_64-unknown-linux-gnu.tar.gz"
 
 jobs:
   deploy:
