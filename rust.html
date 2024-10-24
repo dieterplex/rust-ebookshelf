@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Rust Language &amp; Ecosystem - The Rust eBookshelf</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="rust.html" class="active"><strong aria-hidden="true">1.</strong> The Rust Language & Ecosystem</a></li><li class="chapter-item expanded "><a href="libraries.html"><strong aria-hidden="true">2.</strong> Libraries</a></li><li class="chapter-item expanded affix "><a href="about.html">About</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                    </div>
+
+                    <h1 class="menu-title">The Rust eBookshelf</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/dieterplex/rust-ebookshelf" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="the-rust-language--ecosystem"><a class="header" href="#the-rust-language--ecosystem">The Rust Language &amp; Ecosystem</a></h1>
+<p>Last updated: 2024-10-24 13:03</p>
+<div class="table-wrapper"><table><thead><tr><th>#</th><th>Title</th><th>Book</th><th>Commit</th><th>Last Update</th></tr></thead><tbody>
+<tr><td>1</td><td>The Rust Programming Language <a href="https://doc.rust-lang.org/stable/book/"><i class="fa fa-book"></i></a></td><td><a href="The%20Rust%20Programming%20Language.epub">ePub <i class="fa fa-download"></i></a> (1.01 MB)</td><td>9b812c62 <a href="https://github.com/rust-lang/book.git"><i class="fa fa-git"></i></a></td><td>2024-10-17 13:53</td></tr>
+<tr><td>2</td><td>Rust By Example <a href="https://doc.rust-lang.org/stable/rust-by-example/"><i class="fa fa-book"></i></a></td><td><a href="Rust%20By%20Example.epub">ePub <i class="fa fa-download"></i></a> (261.19 KB)</td><td>8bede1b9 <a href="https://github.com/rust-lang/rust-by-example.git"><i class="fa fa-git"></i></a></td><td>2024-09-30 13:38</td></tr>
+<tr><td>3</td><td>Rust Cookbook <a href="https://rust-lang-nursery.github.io/rust-cookbook/"><i class="fa fa-book"></i></a></td><td><a href="Rust%20Cookbook.epub">ePub <i class="fa fa-download"></i></a> (473.46 KB)</td><td>752b035c <a href="https://github.com/rust-lang-nursery/rust-cookbook.git"><i class="fa fa-git"></i></a></td><td>2021-01-07 16:17</td></tr>
+<tr><td>4</td><td>The Rust Edition Guide <a href="https://doc.rust-lang.org/nightly/edition-guide/"><i class="fa fa-book"></i></a></td><td><a href="The%20Rust%20Edition%20Guide.epub">ePub <i class="fa fa-download"></i></a> (88.73 KB)</td><td>b2fd7e52 <a href="https://github.com/rust-lang/edition-guide.git"><i class="fa fa-git"></i></a></td><td>2024-10-23 21:43</td></tr>
+<tr><td>5</td><td>Rust Compiler Development Guide <a href="https://doc.rust-lang.org/stable/rustc/"><i class="fa fa-book"></i></a></td><td><a href="Rust%20Compiler%20Development%20Guide.epub">ePub <i class="fa fa-download"></i></a> (1.86 MB)</td><td>59d94ea7 <a href="https://github.com/rust-lang/rustc-guide.git"><i class="fa fa-git"></i></a></td><td>2024-10-21 02:30</td></tr>
+<tr><td>6</td><td>The Cargo Book <a href="https://doc.rust-lang.org/stable/cargo/"><i class="fa fa-book"></i></a></td><td><a href="The%20Cargo%20Book.epub">ePub <i class="fa fa-download"></i></a> (681.50 KB)</td><td>944559f3 <a href="https://github.com/rust-lang/cargo.git"><i class="fa fa-git"></i></a></td><td>2024-10-23 20:45</td></tr>
+<tr><td>7</td><td>The Rustdoc Book <a href="https://doc.rust-lang.org/stable/rustdoc/"><i class="fa fa-book"></i></a></td><td><a href="The%20Rustdoc%20Book.epub">ePub <i class="fa fa-download"></i></a> (119.24 KB)</td><td>8aca4bab <a href="https://github.com/rust-lang/rust.git"><i class="fa fa-git"></i></a></td><td>2024-10-24 05:48</td></tr>
+<tr><td>8</td><td>The Rust Reference <a href="https://doc.rust-lang.org/stable/reference/"><i class="fa fa-book"></i></a></td><td><a href="The%20Rust%20Reference.epub">ePub <i class="fa fa-download"></i></a> (339.77 KB)</td><td>23ce6199 <a href="https://github.com/rust-lang/reference.git"><i class="fa fa-git"></i></a></td><td>2024-10-22 21:34</td></tr>
+<tr><td>9</td><td>The Rustonomicon <a href="https://doc.rust-lang.org/stable/nomicon/"><i class="fa fa-book"></i></a></td><td><a href="The%20Rustonomicon.epub">ePub <i class="fa fa-download"></i></a> (174.21 KB)</td><td>456b904f <a href="https://github.com/rust-lang-nursery/nomicon.git"><i class="fa fa-git"></i></a></td><td>2024-10-05 17:29</td></tr>
+<tr><td>10</td><td>Command Line Applications in Rust <a href="https://rust-cli.github.io/book/"><i class="fa fa-book"></i></a></td><td><a href="Command%20Line%20Applications%20in%20Rust.epub">ePub <i class="fa fa-download"></i></a> (50.91 KB)</td><td>624af70a <a href="https://github.com/rust-cli/book.git"><i class="fa fa-git"></i></a></td><td>2024-10-01 01:23</td></tr>
+<tr><td>11</td><td>Rust and WebAssembly <a href="https://rustwasm.github.io/docs/book/"><i class="fa fa-book"></i></a></td><td><a href="Rust%20and%20WebAssembly.epub">ePub <i class="fa fa-download"></i></a> (2.93 MB)</td><td>366042af <a href="https://github.com/rustwasm/book.git"><i class="fa fa-git"></i></a></td><td>2021-01-08 21:59</td></tr>
+<tr><td>12</td><td>The Embedded Rust Book <a href="https://doc.rust-lang.org/nightly/embedded-book/"><i class="fa fa-book"></i></a></td><td><a href="The%20Embedded%20Rust%20Book.epub">ePub <i class="fa fa-download"></i></a> (662.66 KB)</td><td>ddbf1b4e <a href="https://github.com/rust-embedded/book.git"><i class="fa fa-git"></i></a></td><td>2024-10-13 19:53</td></tr>
+<tr><td>13</td><td>The Rust on ESP Book <a href="https://esp-rs.github.io/book/"><i class="fa fa-book"></i></a></td><td><a href="The%20Rust%20on%20ESP%20Book.epub">ePub <i class="fa fa-download"></i></a> (465.71 KB)</td><td>f86533a4 <a href="https://github.com/esp-rs/book.git"><i class="fa fa-git"></i></a></td><td>2024-10-15 09:32</td></tr>
+<tr><td>14</td><td>Rust API Guidelines <a href="https://rust-lang.github.io/api-guidelines/"><i class="fa fa-book"></i></a></td><td><a href="Rust%20API%20Guidelines.epub">ePub <i class="fa fa-download"></i></a> (46.74 KB)</td><td>385ba009 <a href="https://github.com/rust-lang/api-guidelines.git"><i class="fa fa-git"></i></a></td><td>2024-03-10 16:41</td></tr>
+<tr><td>15</td><td>Asynchronous Programming in Rust <a href="https://rust-lang.github.io/async-book/"><i class="fa fa-book"></i></a></td><td><a href="Asynchronous%20Programming%20in%20Rust.epub">ePub <i class="fa fa-download"></i></a> (191.14 KB)</td><td>c9e2e7a2 <a href="https://github.com/rust-lang/async-book.git"><i class="fa fa-git"></i></a></td><td>2024-10-10 01:15</td></tr>
+<tr><td>16</td><td>Async programming in Rust with async-std <a href="https://book.async.rs/"><i class="fa fa-book"></i></a></td><td><a href="Async%20programming%20in%20Rust%20with%20async-std.epub">ePub <i class="fa fa-download"></i></a> (52.33 KB)</td><td>fa29b508 <a href="https://github.com/async-rs/async-std.git"><i class="fa fa-git"></i></a></td><td>2024-09-11 14:02</td></tr>
+<tr><td>17</td><td>mdBook Documentation <a href="https://rust-lang.github.io/mdBook/"><i class="fa fa-book"></i></a></td><td><a href="mdBook%20Documentation.epub">ePub <i class="fa fa-download"></i></a> (66.77 KB)</td><td>684bb788 <a href="https://github.com/rust-lang/mdBook.git"><i class="fa fa-git"></i></a></td><td>2024-10-22 15:49</td></tr>
+<tr><td>18</td><td>The Rust Performance Book <a href="https://nnethercote.github.io/perf-book"><i class="fa fa-book"></i></a></td><td><a href="The%20Rust%20Performance%20Book.epub">ePub <i class="fa fa-download"></i></a> (50.74 KB)</td><td>bc593716 <a href="https://github.com/nnethercote/perf-book.git"><i class="fa fa-git"></i></a></td><td>2024-06-17 04:24</td></tr>
+<tr><td>19</td><td>The Little Book of Rust Macros <a href="https://veykril.github.io/tlborm/"><i class="fa fa-book"></i></a></td><td><a href="The%20Little%20Book%20of%20Rust%20Macros.epub">ePub <i class="fa fa-download"></i></a> (95.56 KB)</td><td>03754b94 <a href="https://github.com/veykril/tlborm.git"><i class="fa fa-git"></i></a></td><td>2024-10-05 13:39</td></tr>
+<tr><td>20</td><td>CXX Documentation <a href="https://cxx.rs/"><i class="fa fa-book"></i></a></td><td><a href="CXX%20Documentation.epub">ePub <i class="fa fa-download"></i></a> (66.77 KB)</td><td>b3f2077c <a href="https://github.com/dtolnay/cxx.git"><i class="fa fa-git"></i></a></td><td>2024-10-22 18:34</td></tr>
+<tr><td>21</td><td>CXX-Qt Documentation <a href="https://kdab.github.io/cxx-qt/book"><i class="fa fa-book"></i></a></td><td><a href="CXX-Qt%20Documentation.epub">ePub <i class="fa fa-download"></i></a> (65.83 KB)</td><td>fd558d5a <a href="https://github.com/KDAB/cxx-qt.git"><i class="fa fa-git"></i></a></td><td>2024-10-21 12:06</td></tr>
+<tr><td>22</td><td>FLTK-rs Book <a href="https://fltk-rs.github.io/fltk-book"><i class="fa fa-book"></i></a></td><td><a href="FLTK-rs%20Book.epub">ePub <i class="fa fa-download"></i></a> (2.00 MB)</td><td>dee53e99 <a href="https://github.com/fltk-rs/fltk-book.git"><i class="fa fa-git"></i></a></td><td>2024-02-29 17:30</td></tr>
+<tr><td>23</td><td>Comprehensive Rust 🦀 <a href="https://google.github.io/comprehensive-rust/"><i class="fa fa-book"></i></a></td><td><a href="Comprehensive%20Rust%20%F0%9F%A6%80.epub">ePub <i class="fa fa-download"></i></a> (689.05 KB)</td><td>8bfff0d9 <a href="https://github.com/google/comprehensive-rust.git"><i class="fa fa-git"></i></a></td><td>2024-10-21 18:01</td></tr>
+<tr><td>24</td><td>Rust Design Patterns <a href="https://rust-unofficial.github.io/patterns/"><i class="fa fa-book"></i></a></td><td><a href="Rust%20Design%20Patterns.epub">ePub <i class="fa fa-download"></i></a> (99.59 KB)</td><td>2e961201 <a href="https://github.com/rust-unofficial/patterns.git"><i class="fa fa-git"></i></a></td><td>2024-10-17 01:12</td></tr>
+<tr><td>25</td><td>Learning Rust With Entirely Too Many Linked Lists <a href="https://rust-unofficial.github.io/too-many-lists/"><i class="fa fa-book"></i></a></td><td><a href="Learning%20Rust%20With%20Entirely%20Too%20Many%20Linked%20Lists.epub">ePub <i class="fa fa-download"></i></a> (673.75 KB)</td><td>1b0b264d <a href="https://github.com/rust-unofficial/too-many-lists.git"><i class="fa fa-git"></i></a></td><td>2024-07-30 02:09</td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next prefetch" href="libraries.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next prefetch" href="libraries.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
